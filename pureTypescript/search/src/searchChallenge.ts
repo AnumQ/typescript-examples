@@ -16,7 +16,6 @@ function SearchChallenge(str: string) {
     const letterCount: LetterCount = {};
 
     let maxRepeatingLettersInCurrentWord = 0;
-    let occurencesOfMax = 0;
     for (let i = 0; i < word.length; i++) {
       const letter = word[i].toLocaleLowerCase();
       if (!letterCount[letter]) letterCount[letter] = 0;
@@ -38,8 +37,20 @@ function SearchChallenge(str: string) {
 
   const repeatingLetters = wordList.filter((w) => w.maxRepeatingLetters > 1);
 
+  console.log(repeatingLetters);
   if (repeatingLetters.length === 0) return -1;
 
+  const initial: { [key: number]: string[] } = {};
+  const manipulated = repeatingLetters.reduce((acc, current) => {
+    return {
+      [current.maxRepeatingLetters]: acc[current.maxRepeatingLetters]
+        ? [...acc[current.maxRepeatingLetters], current.word]
+        : [current.word],
+    };
+  }, initial);
+
+  console.log("manipulated");
+  console.log(manipulated);
   const maxRepeatedLettersInWords = repeatingLetters.reduce(
     (acc, current) => Math.max(acc, current.maxRepeatingLetters),
     0
@@ -64,7 +75,7 @@ function SearchChallenge(str: string) {
   return wordsWithMaxOccurrences[0].word;
 }
 
-const result = SearchChallenge("This is the greatest day ever!");
+const result = SearchChallenge("This is the eve haappier greatest day ever!");
 console.log(result);
 
 //Run in terminal

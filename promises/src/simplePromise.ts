@@ -19,22 +19,28 @@ async function getData() {
 }
 
 // Promise chaining
+console.log("Running first promise...");
 getData()
-  .then((res) => console.log(res))
-  .catch((e) => console.error(e));
+  .then((res) => {
+    console.log("First Promise response: ", res);
+  })
+  .catch((e) => console.error("First Promise response: ", e));
 
 // Try catch block
+console.log("Running second promise...");
 async function getResultFromTryCatch() {
   try {
     const res = await getData();
-    console.log(res);
+    console.log("Second Promise response: ", res);
   } catch (e: unknown) {
     if (e as Error) {
       const err = e as Error;
-      console.error(err.message);
+      console.error("Second Pomise response: ", err);
     } else {
       console.error("Unknown error occured: ", e);
     }
   }
 }
 getResultFromTryCatch();
+
+// Run tsc && node dist/simplePromise.js

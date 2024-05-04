@@ -27,8 +27,8 @@ getData()
   .catch((e) => console.error("First Promise response: ", e));
 
 // Try catch block
-console.log("Running second promise...");
 async function getResultFromTryCatch() {
+  console.log("Running second promise...");
   try {
     const res = await getData();
     console.log("Second Promise response: ", res);
@@ -41,6 +41,8 @@ async function getResultFromTryCatch() {
     }
   }
 }
+
+// Run the
 getResultFromTryCatch();
 
 // Run tsc && node dist/simplePromise.js

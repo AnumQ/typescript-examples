@@ -31,9 +31,9 @@ getData()
 })
     .catch((e) => console.error("First Promise response: ", e));
 // Try catch block
-console.log("Running second promise...");
 function getResultFromTryCatch() {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log("Running second promise...");
         try {
             const res = yield getData();
             console.log("Second Promise response: ", res);
@@ -49,5 +49,6 @@ function getResultFromTryCatch() {
         }
     });
 }
+// Run the
 getResultFromTryCatch();
 // Run tsc && node dist/simplePromise.js

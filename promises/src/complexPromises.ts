@@ -54,7 +54,7 @@ const userProfiles = [
   },
 ];
 
-function promiseTimeout<T>(data: T): Promise<T> {
+function promiseWithDelay<T>(data: T): Promise<T> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
@@ -64,15 +64,15 @@ function promiseTimeout<T>(data: T): Promise<T> {
 
 // Functions
 function fetchUserData(): Promise<User> {
-  return promiseTimeout<User>(user);
+  return promiseWithDelay<User>(user);
 }
 
 function fetchUserPosts(userId: number): Promise<Post[]> {
-  return promiseTimeout<Post[]>(posts.filter((p) => p.userId === userId));
+  return promiseWithDelay<Post[]>(posts.filter((p) => p.userId === userId));
 }
 
 function fetchUserProfile(userId: number): Promise<Profile | undefined> {
-  return promiseTimeout<Profile | undefined>(
+  return promiseWithDelay<Profile | undefined>(
     userProfiles.filter((p) => p.userId === userId).shift()
   );
 }

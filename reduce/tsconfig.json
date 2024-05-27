@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2023",
+    "lib": ["ES2023", "DOM"],
     "module": "commonjs",
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "strict": true,
     "esModuleInterop": true,
-    "strict": true
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
 }

@@ -84,7 +84,10 @@ function getRecommendations(user) {
     console.log("filteredAboveAvgScore");
     console.log(filteredAboveAvgScore);
     // sort on average score descending
-    var sorted = filteredAboveAvgScore.sort(function (a, b) { return b.averageScore - a.averageScore; });
+    var sorted = filteredAboveAvgScore.sort(
+    // use toSorted instead as it creates new array instead of mutating the existing one
+    function (a, b) { return b.averageScore - a.averageScore; });
+    console.log("sorted on average score descending");
     console.log(sorted);
 }
 getRecommendations(mockUser);

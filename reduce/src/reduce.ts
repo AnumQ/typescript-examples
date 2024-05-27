@@ -57,6 +57,7 @@ type GroupedTitles = {
   [key: string]: number[];
 };
 
+// Get recommendations based on ratings by user's friends
 function getRecommendations(user: User) {
   const userRatings = user.ratings;
 
@@ -89,7 +90,7 @@ function getRecommendations(user: User) {
     initialValue
   );
 
-  console.log("groupedByTitle");
+  console.log("");
   console.log(groupedByTitle);
 
   const keys = Object.keys(groupedByTitle);

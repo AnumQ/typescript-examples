@@ -61,6 +61,7 @@ type GroupedTitles = {
 function getRecommendations(user: User) {
   const userRatings = user.ratings;
 
+  console.log("User ratings: ");
   console.log(userRatings);
   const friendsRatings = user.friends.reduce((acc: Rating[], curr: Friend) => {
     return [...acc, ...curr.ratings];
@@ -75,11 +76,14 @@ function getRecommendations(user: User) {
     return !userTitles.includes(item.title);
   });
 
+  console.log(
+    "List of ratings excluding the ones user already given ratings to"
+  );
   console.log(filterOutUserRatings);
 
   // if same title occurs multiple times, get average score
 
-  // group by title
+  // we will first group by title
   let initialValue: GroupedTitles = {};
   const groupedByTitle = filterOutUserRatings.reduce(
     (acc: GroupedTitles, curr: Rating) => {
@@ -90,7 +94,7 @@ function getRecommendations(user: User) {
     initialValue
   );
 
-  console.log("");
+  console.log("Grouped by Title with a list of scores");
   console.log(groupedByTitle);
 
   const keys = Object.keys(groupedByTitle);

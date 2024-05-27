@@ -46,8 +46,10 @@ var mockUser = {
         },
     ],
 };
+// Get recommendations based on ratings by user's friends
 function getRecommendations(user) {
     var userRatings = user.ratings;
+    console.log("User ratings: ");
     console.log(userRatings);
     var friendsRatings = user.friends.reduce(function (acc, curr) {
         return __spreadArray(__spreadArray([], acc, true), curr.ratings, true);
@@ -59,16 +61,17 @@ function getRecommendations(user) {
     var filterOutUserRatings = friendsRatings.filter(function (item) {
         return !userTitles.includes(item.title);
     });
+    console.log("List of ratings excluding the ones user already given ratings to");
     console.log(filterOutUserRatings);
     // if same title occurs multiple times, get average score
-    // group by title
+    // we will first group by title
     var initialValue = {};
     var groupedByTitle = filterOutUserRatings.reduce(function (acc, curr) {
         var title = curr.title;
         acc[title] = acc[title] ? __spreadArray(__spreadArray([], acc[title], true), [curr.score], false) : [curr.score];
         return acc;
     }, initialValue);
-    console.log("groupedByTitle");
+    console.log("Grouped by Title with a list of scores");
     console.log(groupedByTitle);
     var keys = Object.keys(groupedByTitle);
     var values = Object.values(groupedByTitle);

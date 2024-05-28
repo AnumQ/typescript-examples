@@ -1,4 +1,4 @@
-class Person {
+class PersonClass {
   private name: string;
   private age: number;
 
@@ -20,7 +20,7 @@ class Person {
   }
 }
 
-const person1 = new Person("Anum", 30);
+const person1 = new PersonClass("Anum", 30);
 person1.greet("Hello there");
 
 // Run tsc Person.ts // This will generate Person.js file

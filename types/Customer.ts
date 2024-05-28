@@ -3,6 +3,7 @@ type Customer = {
   age: number;
 };
 
+// intersection union type
 type CustomerWithAddress = Customer & {
   address: Address;
 };

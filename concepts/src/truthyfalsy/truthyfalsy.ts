@@ -1,7 +1,8 @@
 console.log("Useful to check if string/object exists and is not empty:");
-console.log("!'hello' //", !"hello");
-console.log("!!'hello' //", !!"hello");
+console.log("!'hello' =>", !"hello");
+console.log("!!'hello' =>", !!"hello");
 
+console.log("");
 console.log("Single !'' // true");
 console.log("!'' //", !"");
 console.log("Double !!'' // false");

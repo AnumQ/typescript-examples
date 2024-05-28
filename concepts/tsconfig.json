@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
-    "lib": ["ES2023", "DOM"],
+    "target": "ES2022", // Use ES2022 for now if ES2023 is causing issues
+    "lib": ["ES2022", "DOM"], // Use ES2022 library
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
